@@ -1,10 +1,11 @@
 import { View, Text, StyleSheet, Image,SafeAreaView, TouchableOpacity } from 'react-native'
 import React from 'react'
-import { Button } from 'react-native-paper'
+import { Badge, Button } from 'react-native-paper'
 import { COLORS, FONTS, SIZES } from '../constants/theme'
 import person1 from '../assets/img/person1.png'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useNavigation } from '@react-navigation/native';
+import { IconButton, MD3Colors } from 'react-native-paper';
 
 
 
@@ -24,14 +25,15 @@ const OrderHeader = () => {
         </View>
 
         {/* nav  */}
-        <View>
-         <TouchableOpacity   
-         onPress={() => {
-        // Navigate using the `navigation` prop that you received
-        navigation.navigate('Settings');
-      }}>
-              <Icon name='menu' size={47} />
-          </TouchableOpacity> 
+        <View >
+          <Badge size={13} style={{position:'absolute', top:12, right:13, zIndex:1}} >2</Badge>
+           <IconButton
+                icon="bell-outline"
+                iconColor={COLORS.black}
+                size={30}
+                onPress={() => console.log('Pressed')}
+                style={{position:'relative', top:0}}
+                />
         </View>
       </View>
 

@@ -16,23 +16,26 @@ const OrderStatusbar = () => {
             <View style={styles.updateContainer}>
                 <View style={{ alignItems:'center'}}>
                     <View style={[styles.iconContainer, styles.disabled]}>
-                        <Icon size={25} color={COLORS.white} name='truck' />
+                        <Icon size={25} color={COLORS.white} name='truck-delivery' />
                     </View>
                     <Text style={[styles.iconText, styles.disabledText]}>Going for pickup</Text>
                 </View>
 
                 <View style={{ alignItems:'center'}}>
-                    <View style={[styles.iconContainer, styles.disabled]}><Icon size={25} color={COLORS.white} name='truck' /></View>
+                    <View style={[styles.iconContainer, styles.disabled]}>
+                        <Icon size={25} color={COLORS.white} name='truck-check' /></View>
                     <Text style={[styles.iconText, styles.disabledText]}>Picked up</Text>
                 </View>
 
                 <View style={{ alignItems:'center'}}>
-                    <View style={[styles.iconContainer, styles.disabled]}><Icon size={25} color={COLORS.white} name='truck' /></View>
+                    <View style={[styles.iconContainer, styles.disabled]}>
+                        <Icon size={25} color={COLORS.white} name='truck-fast' /></View>
                     <Text style={[styles.iconText, styles.disabledText]}>In-transit</Text>
                 </View>
 
                 <View style={{ alignItems:'center'}}>
-                    <View style={[styles.iconContainer, styles.disabled]}><Icon size={25} color={COLORS.white} name='truck' /></View>
+                    <View style={[styles.iconContainer, styles.disabled]}>
+                        <Icon size={25} color={COLORS.white} name='human-dolly' /></View>
                     <Text style={[styles.iconText, styles.disabledText]}>Delivered</Text>
                 </View>
 

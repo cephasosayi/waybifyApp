@@ -52,19 +52,18 @@ const navigation = useNavigation();
     <>
     <Text style={styles.labels}>Senders Phone Number</Text>
      <View style={styles.PhoneContainer}>
-     <Picker
+     {/* <Picker
       selectedValue={countryCode}
       onValueChange={(itemValue) =>
       setCountryCode(itemValue)}
       style={[styles.picker]}>
     <Picker.Item label="+234" value="1" />
-    {/* <Picker.Item label="US (+1)" value="1" /> */}
-    {/* Add more countries here */}
-  </Picker>
+ 
+  </Picker> */}
       <TextInput  
       keyboardType='numeric'      
       placeholder='08033-333-333'
-      style={[styles.imageField, styles.phoneInput,{ height: 50, padding:10}]} />
+      style={[styles.imageField,{height:50, padding:10}]} />
 
     </View> 
     </>
@@ -79,19 +78,19 @@ const navigation = useNavigation();
     <>
     <Text style={styles.labels}>Receivers Phone Number</Text>
      <View style={styles.PhoneContainer}>
-     <Picker
+     {/* <Picker
       selectedValue={countryCode}
       onValueChange={(itemValue) =>
       setCountryCode(itemValue)}
       style={[styles.picker]}>
     <Picker.Item label=" +234" value="1" />
-    <Picker.Item label="US (+1)" value="1" />
+    <Picker.Item label="US (+1)" value="1" /> */}
     {/* Add more countries here */}
-  </Picker>
+  {/* </Picker> */}
       <TextInput  
       keyboardType='numeric'      
       placeholder='08033-333-333'
-      style={[styles.imageField, styles.phoneInput,{ height: 50, padding:10}]} />
+      style={[styles.imageField, styles.phneInput,{ height: 50, padding:10}]} />
 
     </View> 
     </>

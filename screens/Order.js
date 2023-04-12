@@ -7,12 +7,14 @@ import  OrderHeader  from '../components/OrderHeader';
 
 import { dummy } from '../constants/dummy';
 import { FONTS, SIZES } from '../constants/theme';
+import FocusedStatusBar from '../components/FocusedStatusBar';
 
 const Order = () =>{
 
     return (
     <SafeAreaView style={{ flex:1}}>
         {/* Header  */}
+        <FocusedStatusBar />
         <View style={{ flex:1}}>
         {/* create order button   */}
        
