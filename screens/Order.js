@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 import {View, SafeAreaView, Text} from 'react-native';
 import { Button } from 'react-native-paper';
@@ -8,12 +8,30 @@ import  OrderHeader  from '../components/OrderHeader';
 import { dummy } from '../constants/dummy';
 import { FONTS, SIZES } from '../constants/theme';
 import FocusedStatusBar from '../components/FocusedStatusBar';
+import { fetchOrders } from '../features/order/orderSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Order = () =>{
+   const { orders, isLoading } = useSelector((store) => store.orders);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchOrders()); // Fetch orders when the component mounts
+      }, []);
+
+      if(isLoading){
+        return (
+          <View>
+            <Text>Loading...</Text>
+          </View>
+        )
+      }
+
 
     return (
     <SafeAreaView style={{ flex:1}}>
-        {/* Header  */}
+       <>
+          {/* Header  */}
         <FocusedStatusBar />
         <View style={{ flex:1}}>
         {/* create order button   */}
@@ -22,9 +40,9 @@ const Order = () =>{
         <View style={{ flex:1}} >
         <View style={styles.orderContainer}>
                 <FlatList 
-                data={dummy}
+                data={orders}
                 renderItem={({item}) => <OrderCard data={item} />}
-                keyExtractor={(item) => item.id}
+                keyExtractor={(item) => item.id.toString()}
                 showsVerticalScrollIndicator={false}  
                 ListHeaderComponent={<OrderHeader />}
 
@@ -32,8 +50,8 @@ const Order = () =>{
         </View>
 
         </View>
-        </View>    
-
+        </View>   
+        </> 
     </SafeAreaView>
     );
 }

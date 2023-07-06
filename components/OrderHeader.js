@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignSelf: 'center',
-    marginTop: 35
+    marginTop: 15
   },
   bioWrapper:{
     flexDirection: 'row',

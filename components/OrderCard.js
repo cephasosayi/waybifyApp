@@ -22,7 +22,7 @@ const OrderCard = ({data}) => {
       {/* item  */}
       <View>
         <Text style={styles.itemHeadingStyle}>Items</Text>
-        <Text style={styles.itemTextStyle}>{data.items}</Text>
+        <Text style={styles.itemTextStyle}>{data.productName}</Text>
       </View>
       {/* waybill no  */}
       <View>
@@ -39,8 +39,9 @@ const OrderCard = ({data}) => {
         <Image source={data.sendersProfilePicture} />
         </View>
         <View >
-        <Text style={styles.SRNameStyles}>{data.senderName}</Text>
-        <Text style={styles.SRAddressStyles}>{data.sendersAddress}</Text>
+        <Text style={[styles.SRNameStyles, {color: COLORS.primary}]}>FROM: </Text> 
+        <Text style={styles.SRNameStyles}>{data.sendersName}</Text>
+        <Text style={styles.SRAddressStyles}>{data.pickupAddress}</Text>
       </View>
       </View>
 
@@ -50,7 +51,8 @@ const OrderCard = ({data}) => {
         <Image source={data.receiversProfilePicture} />
         </View>
         <View >
-        <Text style={styles.SRNameStyles}>{data.ReceiverName}</Text>
+        <Text style={[styles.SRNameStyles, { color: COLORS.primary, marginTop: 3}]}>TO: </Text> 
+        <Text style={styles.SRNameStyles}>{data.ReceiversName}</Text>
         <Text style={styles.SRAddressStyles}>{data.receiversAddress}</Text>
       </View>
       </View>
@@ -73,7 +75,7 @@ export default OrderCard
 const styles = StyleSheet.create({
   containerStyles:{
     width: 334,
-    height: 251,
+    height: 283,
     alignSelf: 'center',
     marginBottom: 11, 
     shadowColor: COLORS.primary,

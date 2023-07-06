@@ -18,7 +18,9 @@ import Security from './screens/Security';
 import PaymentSuccess from './screens/PaymentSuccess';
 import StatusUpdate from './screens/StatusUpdate';
 import OrderDetail from './screens/OrderDetail';
-
+import { Provider } from 'react-redux';
+import store from './store';
+import { Authenticator } from 'aws-amplify-react-native';
 
 
 const theme = {
@@ -108,7 +110,7 @@ export default function App() {
   });
 
   if (!loaded) return null;
-    return (
+    return ( <Provider store={store}>
       <PaperProvider theme={theme}>
        <NavigationContainer>
        <Stack.Navigator initialRouteName='Home'>
@@ -140,6 +142,7 @@ export default function App() {
     </Stack.Navigator>
         </NavigationContainer>
       </PaperProvider>
+      </Provider>
     );
   }
   
