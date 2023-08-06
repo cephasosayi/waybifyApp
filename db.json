@@ -197,6 +197,24 @@
       "receiversProfilePicture": "",
       "itemPhoto": 7,
       "id": "OcqqMbE"
+    },
+    {
+      "ItemName": "Mac laptop",
+      "pickupAddress": "Bikan sidi",
+      "VendorsName": "Dabz global",
+      "vendorsPhoneNumber": "080526399852",
+      "DeliveryAddress": "Jabi phase 2",
+      "value": "2000",
+      "Size": "option2",
+      "Nopackages": "2",
+      "category": "option2",
+      "waybillNo": "WB2vSOKM",
+      "status": "going for pickup",
+      "sendersName": "Johnson Emeka",
+      "icon": "truck-fast",
+      "sendersProfilePicture": 2,
+      "receiversProfilePicture": 3,
+      "id": "BKnnpgq"
     }
   ]
 }

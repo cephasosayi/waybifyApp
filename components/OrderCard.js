@@ -13,7 +13,18 @@ const OrderCard = ({data}) => {
      {/* header  */}
      <View style={styles.headerWrapper}>
       <View><OrderStatus icon={data.icon} text={data.status}/></View>
-      <View><Icon size={24} style={styles.icon} name="clock-fast"  /></View>
+      <View style={{ 
+         flexDirection: 'row',
+        //  justifyContent: 'space-between',
+         alignItems:'center',
+   marginLeft: -25,
+
+      }}>
+        <Icon size={22} style={styles.icon} name="clock-fast"  /> 
+        <Text style={{
+         marginTop: 10
+        }}>5hrs</Text>
+      </View>
      </View>
 
      {/* item desc */}
@@ -90,11 +101,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     alignSelf:'center',
-    marginBottom:14
+    marginBottom:14,
+    marginLeft: -10
   },
   icon:{
    marginTop: 10,
-   marginRight: 10
+   marginRight: 3,
   },
   descWrapper:{
     width: 300 ,

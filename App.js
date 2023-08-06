@@ -56,14 +56,14 @@ const TabScreen = () => {
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
-          if (route.name === 'Order') {
+          if (route.name === 'Delivery') {
             iconName = focused
               ? 'truck-check'
               : 'truck-check-outline';
           } else if (route.name === 'History') {
-            iconName = focused ? 'clipboard-text-clock' : 'clipboard-text-clock-outline';
-          } else if (route.name === 'Settings') {
-            iconName = focused ? 'account-circle' : 'account-circle-outline';
+            iconName = focused ? 'view-split-horizontal' : 'view-split-horizontal';
+          } else if (route.name === 'More') {
+            iconName = focused ? 'dots-horizontal' : 'dots-horizontal';
           }
 
           // You can return any component that you like here!
@@ -78,7 +78,7 @@ const TabScreen = () => {
         tabBarIconStyle:styles.tabBarIconStyles
 
         }}  
-        name="Order" component={Order}
+        name="Delivery" component={Order}
          />
       <Tab.Screen options={{headerShown:false, 
         tabBarLabelStyle:styles.tabBarLabelStyles,
@@ -89,7 +89,7 @@ const TabScreen = () => {
         tabBarLabelStyle:styles.tabBarLabelStyles,
         tabBarIconStyle:styles.tabBarIconStyles,
 
-        }}   name="Settings" component={SettingsScreen} />
+        }}   name="More" component={SettingsScreen} />
 
     {/* <Tab.Screen  name="Stack" component={StackScreen} /> */}
 

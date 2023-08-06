@@ -85,6 +85,7 @@ const CreateOrder = () => {
   
       // Dispatch the action to post the order
       dispatch(postOrder(formData));
+      navigation.navigate('SelectDriver')
   };
 
   
@@ -101,7 +102,7 @@ const CreateOrder = () => {
       <Controller
         control={control}
         name='itemPhoto'
-        rules={{ required: true }}
+        rules={{ required: false }}
         render={({ field: { onChange, onBlur } }) => (
           <View>
             <TouchableOpacity onPress={() => handleSelectImages({ onChange })} title="Select Images" style={[styles.imageField]}>
@@ -121,7 +122,7 @@ const CreateOrder = () => {
         <HelperText type='error'>This is required.</HelperText>}
     </>
    <>
-    <Text style={styles.labels}>Product Name</Text>
+    <Text style={styles.labels}>Item Name</Text>
     <Controller
             control={control}
             rules={{
@@ -129,7 +130,7 @@ const CreateOrder = () => {
             }}
             render={({ field: { onChange, onBlur, value } }) => (
               <TextInput
-                label='Product Name'
+                label='Item Name'
                 placeholder="Product name"
                 onBlur={onBlur}
                 onChangeText={onChange}
@@ -137,9 +138,9 @@ const CreateOrder = () => {
                 style={styles.input}
               />
             )}
-            name='productName'          
+            name='ItemName'          
           />
-           {errors.productName && 
+           {errors.ItemName && 
            <HelperText type='error' >
             This is required.</HelperText>}
         </>
@@ -169,7 +170,7 @@ const CreateOrder = () => {
     </>
     <>
 
-    <Text style={styles.labels}>Receiver's Name</Text>
+    <Text style={styles.labels}>Vendor's Name</Text>
 <Controller
         control={control}
         rules={{
@@ -177,8 +178,8 @@ const CreateOrder = () => {
         }}
         render={({ field: { onChange, onBlur, value } }) => (
           <TextInput
-            label="Receivers Name"
-            placeholder="Receivers Name"
+            label="vendor's Name"
+            placeholder="vendor's Name"
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
@@ -187,13 +188,13 @@ const CreateOrder = () => {
 
           />
         )}
-        name="ReceiversName"
+        name="VendorsName"
       />
-      {errors.ReceiversName && <HelperText type='error'>
+      {errors.VendorsName && <HelperText type='error'>
         This is required</HelperText>}
     </>
 <>
-<Text style={styles.labels}>Receiver's Phone Number</Text>
+<Text style={styles.labels}>Vendor's Phone Number</Text>
 <Controller
         control={control}
         rules={{
@@ -202,7 +203,7 @@ const CreateOrder = () => {
         render={({ field: { onChange, onBlur, value } }) => (
           <TextInput
           keyboardType='phone-pad'
-            label='Receivers Phone Number'
+            label="vendor's Phone Number"
             placeholder="Phone Number"
             onBlur={onBlur}
             onChangeText={onChange}
@@ -211,15 +212,15 @@ const CreateOrder = () => {
 
           />
         )}
-        name="receiversPhoneNumber"
+        name="vendorsPhoneNumber"
       />
-      {errors.receiversPhoneNumber && <HelperText type='error'>
+      {errors.vendorsPhoneNumber && <HelperText type='error'>
         This is required.</HelperText>}
     </>
 
     <>
    
-<Text style={styles.labels}>Receiver's Address</Text>
+<Text style={styles.labels}>Delivery Address</Text>
 <Controller
         control={control}
         rules={{
@@ -227,8 +228,8 @@ const CreateOrder = () => {
         }}
         render={({ field: { onChange, onBlur, value } }) => (
           <TextInput
-            label="Receivers Address"
-            placeholder="Receivers Address"
+            label="Delivery Address"
+            placeholder="Delivery Address"
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
@@ -237,9 +238,38 @@ const CreateOrder = () => {
 
           />
         )}
-        name="ReceiversAddress"
+        name="DeliveryAddress"
       />
-      {errors.ReceiversAddress && <HelperText type='error'>
+      {errors.DeliveryAddress && <HelperText type='error'>
+        This is required</HelperText>}
+    </>
+
+    <>
+
+    {/* instruction */}
+    <Text style={styles.labels}>Special Instruction</Text>
+<Controller
+        control={control}
+        rules={{
+         required: false,
+        }}
+        render={({ field: { onChange, onBlur, value } }) => (
+          <TextInput
+            label="Delivery Address"
+            placeholder="Delivery Address"
+            onBlur={onBlur}
+            onChangeText={onChange}
+            value={value}
+            multiline
+         numberOfLines={4}
+            style={styles.input}
+
+
+          />
+        )}
+        name="DeliveryAddress"
+      />
+      {errors.DeliveryAddress && <HelperText type='error'>
         This is required</HelperText>}
     </>
 
@@ -251,7 +281,7 @@ const CreateOrder = () => {
   <View style={styles.VSContainer}>
 
     <View style={{ rowGap:10,}}>
-    <Text style={styles.labels}>Value(N)</Text>
+    <Text style={styles.labels}> Item Value(N)</Text>
     <Controller
         control={control}
         rules={{
@@ -277,31 +307,29 @@ const CreateOrder = () => {
 
     </View>
  <View style={{ rowGap:10}}>
- <Text style={styles.labels}>Size (KG)</Text>
+ <Text style={styles.labels}>Size</Text>
 
- <Controller
+      <Controller
         control={control}
-        rules={{
-         required: true,
-        }}
+        name="Size"
+        label='Size'
+        rules={{ required: true}}
         render={({ field: { onChange, onBlur, value } }) => (
-          <TextInput
-            label="Size (KG)"
-            placeholder="Size (KG)"
-            onBlur={onBlur}
-            onChangeText={onChange}
-            value={value}
-            helperText={errors && errors.message}
-            style={styles.Vsinput}
-
-
-          />
+          <Picker
+          selectedValue={value}
+          onValueChange={onChange}
+          onBlur={onBlur}
+          style={[styles.Vsinput, { height: 50, padding:0}]}
+          >
+            <Picker.Item label="Small" value="option1" />
+            <Picker.Item label="Medium" value="option2" />
+            <Picker.Item label="Large" value="option3" />
+          </Picker>
         )}
-        name="size"
       />
-      {errors.size && <HelperText type='error'>
+      {errors.category && <HelperText type='error'>
         This is required.</HelperText>}
-    </View> 
+    </View>
     </View>
   </> 
 
@@ -365,7 +393,7 @@ const CreateOrder = () => {
       <Divider />
 
           {/* summary  */}
-          {/* <PaymentSummary/> */}
+          <PaymentSummary/>
 
            {/* button  */}
            <ContinueButton 

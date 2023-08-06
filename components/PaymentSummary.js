@@ -12,15 +12,15 @@ const PaymentSummary = () => {
             <Text style={[styles.labels, { fontFamily: FONTS.bold , fontSize: SIZES.medium}]}>Payment Summary</Text>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between'}}>
               <Text style={styles.labels}> Delivery Charges</Text>
-              <Text style={styles.labels}> &#x20A6; 1,203.00</Text>
+              <Text style={[styles.labels, { textAlign: 'left'}]}> &#x20A6; 1,203.00</Text>
             </View>
 
             <View style={{ flexDirection: 'row', justifyContent: 'space-between'}}>
               <Text style={styles.labels}> Tax + Service Charge</Text>
-              <Text style={styles.labels}> &#x20A6; 199.00</Text>
+              <Text style={[styles.labels, { textAlign: 'left'}]}> &#x20A6; 199.00</Text>
             </View>
 
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between'}}>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 50}}>
               <Text style={[styles.labels, {fontSize: SIZES.large , color: COLORS.primary}]}> Total</Text>
               <Text style={[styles.labels, {fontSize: SIZES.large, color: COLORS.primary}]}> &#x20A6; 1,402.00</Text>
             </View>

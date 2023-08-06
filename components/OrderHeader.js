@@ -18,18 +18,18 @@ const OrderHeader = () => {
         {/* user bio  */}
         <View style={styles.bioWrapper}>
           <Image source={person1} style={styles.profileImg}/>
-          <View>
-            <Text style={styles.nameStyle}> Johnson Emeka</Text>
-            <Text style={styles.welcomeAddress}> Welcome Back!</Text>
+          <View style={styles.biodata}>
+            <Text style={styles.nameStyle}>Hello,Johnson</Text>
+            <Text style={styles.welcomeAddress}>Welcome Back!</Text>
           </View>
         </View>
 
         {/* nav  */}
-        <View >
+        <View style={styles.circle} >
           <Badge size={13} style={{position:'absolute', top:12, right:13, zIndex:1}} >2</Badge>
            <IconButton
                 icon="bell-outline"
-                iconColor={COLORS.black}
+                iconColor={COLORS.white}
                 size={30}
                 onPress={() => console.log('Pressed')}
                 style={{position:'relative', top:0}}
@@ -40,7 +40,7 @@ const OrderHeader = () => {
       {/* <create button  */}
      <View>
      <View style={[styles.ButtonWrapper]}>
-            <Text style={[styles.textStyle]}>Create Order!</Text>
+            <Text style={[styles.textStyle]}>Schedule a Pickup!</Text>
             <View style={styles.ButtonContainer}>
             <TouchableOpacity style={styles.ButtonStyle} 
             onPress={() => navigation.navigate('CreateOrder')}>
@@ -48,7 +48,7 @@ const OrderHeader = () => {
           </TouchableOpacity> 
 
         </View>
-        <Text style={[styles.textStyle]}>Active Orders!</Text>
+        <Text style={[styles.textStyle]}>Active Deliveries</Text>
         </View>
      </View>
     </SafeAreaView>
@@ -66,6 +66,14 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginTop: 15
   },
+  circle: {
+    width: 50,
+    height: 50,
+    borderRadius: 40,
+    backgroundColor: COLORS.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   bioWrapper:{
     flexDirection: 'row',
     rowGap: 10,
@@ -73,28 +81,31 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   profileImg:{
-    height: 44,
-    width: 49,
+    height: 46,
+    width: 51,
     resizeMode: 'contain',
     backgroundColor: COLORS.secondary,
-    borderRadius:7,
+    borderRadius:15,
     borderWidth: .6,
-    borderColor: COLORS.secondary
+    borderColor: COLORS.primary
   },
-  nameStyle:{
+  welcomeAddress:{
     fontFamily: FONTS.medium,
     fontWeight: 400,
     fontSize: SIZES.font,
     lineHeight: SIZES.extraLarge,
     color: COLORS.secondary,
   },
-  welcomeAddress:{
+   nameStyle:{
     fontFamily: FONTS.semiBold,
     fontWeight: 600,
     fontSize: SIZES.large,
     lineHeight: SIZES.extraLarge,
     color: COLORS.black,
 
+  },
+  biodata:{
+    textAlign: 'left'
   },
   ButtonWrapper:{
     // marginTop: 40,
